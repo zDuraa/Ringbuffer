@@ -16,6 +16,8 @@ namespace MyDataStructures
 		int32_t s32ReadElement(int32_t& rs32Element);
 		int32_t s32WriteElement(const int32_t& rs32Element);
 		void vPrintRingBuffer(void);
+		void vPrintWriteElement(const int32_t& rs32Element, int32_t i32Ret);
+		void vPrintReadElement(const int32_t& rs32Element, int32_t i32Ret);
 	protected:
 
 	private:
