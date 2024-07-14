@@ -26,13 +26,13 @@ int32_t Ringbuffer::s32ReadElement(int32_t& rs32Element)
 		u32NumberElements_--;
 		u32ReadPos_++;
 		i32Ret = RINGBUFFER_OKAY;
-	}
-	else 
-	{
-		i32Ret = RINGBUFFER_EMPTY;
 		if (u32ReadPos_ >= RINGBUFFER_MAXELEMENTS) {
 			u32ReadPos_ = 0;
 		}
+	}
+	else 
+	{
+		i32Ret = RINGBUFFER_EMPTY;		
 	}
 
 	vPrintReadElement(rs32Element, i32Ret);
