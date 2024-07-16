@@ -6,12 +6,13 @@
 #define RINGBUFFER_EMPTY -2
 #define RINGBUFFER_NULLPTR -3
 
+
 namespace MyDataStructures
 {
 	class Ringbuffer
 	{
 	public:
-		Ringbuffer(uint32_t u32Size);
+		Ringbuffer(uint32_t u32Size = 0);
 		~Ringbuffer();
 
 		int32_t s32ReadElement(int32_t& rs32Element) noexcept; 

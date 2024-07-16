@@ -1,10 +1,12 @@
 #include <iostream>
 #include <cstdint>
 #include "Ringbuffer.h"
-
+#include "Consumer.h"
+#include "Producer.h"
 
 void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
+using namespace Client;
 int main(void)
 {
 	
@@ -19,37 +21,50 @@ void vTestCreateObjectsRingbuffer(void)
 	int iTemp = 0;
 	uint32_t u32SizeOfRingbuffer = 8;
 	Ringbuffer* pRingbuffer = new Ringbuffer( u32SizeOfRingbuffer );
-	pRingbuffer->vPrintRingBuffer();
-
-	pRingbuffer->s32WriteElement(42);
-	pRingbuffer->s32WriteElement(43);
-	pRingbuffer->s32WriteElement(44);
-	pRingbuffer->s32WriteElement(45);
-	pRingbuffer->s32WriteElement(46);
-	pRingbuffer->s32WriteElement(47);
-	pRingbuffer->s32WriteElement(48);
-	pRingbuffer->s32WriteElement(49);
-	pRingbuffer->s32WriteElement(50);
+	Producer Producer{ pRingbuffer };
+	Consumer* pConsumer = new Consumer{ pRingbuffer };
 
 	pRingbuffer->vPrintRingBuffer();
 
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
+	iTemp = 42;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 43;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 44;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 45;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 46;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 47;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 48;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 49;
+	Producer.s32WriteToRingbuffer(iTemp);
+	iTemp = 50;
+	Producer.s32WriteToRingbuffer(iTemp);
 
 	pRingbuffer->vPrintRingBuffer();
 
-	pRingbuffer->s32WriteElement(99);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
 
 	pRingbuffer->vPrintRingBuffer();
 
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
-	pRingbuffer->s32ReadElement(iTemp);
+	iTemp = 99;
+	Producer.s32WriteToRingbuffer(iTemp);
+
+	pRingbuffer->vPrintRingBuffer();
+
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
 
 	pRingbuffer->vPrintRingBuffer();
 
