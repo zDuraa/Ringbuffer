@@ -4,6 +4,7 @@
 #include "Consumer.h"
 #include "Producer.h"
 #include "IOChannel.h"
+#include "Queue.h"
 
 void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
@@ -26,10 +27,21 @@ void vTestCreateObjectsRingbuffer(void)
 	Consumer* pConsumer = new Consumer{ pRingbuffer };
 	IOChannel* pIOChannel = new IOChannel{};
 
+	Queue* pQueue = new Queue{8};
+	pQueue->s32WriteElement(iTemp);
+	iTemp = 43;
+	pQueue->s32WriteElement(iTemp);
+	iTemp = 44;
+	pQueue->s32WriteElement(iTemp);
+	iTemp = 10;
+	pQueue->s32WriteElementFront(iTemp);
+	pQueue->vPrintRingBuffer();
+	
+	
 	pIOChannel->s32WriteElementToChannel(1, iTemp);
 	iTemp = 0;
 	pIOChannel->s32ReadElementFromChannel(1, iTemp);
-	
+
 	pRingbuffer->vPrintRingBuffer();
 	
 	iTemp = 42;
