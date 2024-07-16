@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Consumer.cpp" />
+    <ClCompile Include="IOChannel.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Producer.cpp" />
     <ClCompile Include="Ringbuffer.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consumer.h" />
+    <ClInclude Include="IOChannel.h" />
     <ClInclude Include="Producer.h" />
     <ClInclude Include="Ringbuffer.h" />
   </ItemGroup>

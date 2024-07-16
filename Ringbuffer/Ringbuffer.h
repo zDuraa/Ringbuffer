@@ -12,7 +12,8 @@ namespace MyDataStructures
 	class Ringbuffer
 	{
 	public:
-		Ringbuffer(uint32_t u32Size = 0);
+		Ringbuffer();	
+		Ringbuffer(uint32_t u32Size);
 		~Ringbuffer();
 
 		int32_t s32ReadElement(int32_t& rs32Element) noexcept; 

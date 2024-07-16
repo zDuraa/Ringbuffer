@@ -6,6 +6,15 @@ using namespace MyDataStructures;
 using namespace std;
 using std::endl;
 
+Ringbuffer::Ringbuffer()
+{
+	u32SizeOfBuffer_ = 10U;
+	ps32Buffer_ = new int[u32SizeOfBuffer_] {};
+	u32ReadPos_ = 0;
+	u32WritePos_ = 0;
+	u32NumberElements_ = 0;
+}
+
 Ringbuffer::Ringbuffer(uint32_t u32Size)
 {
 	u32SizeOfBuffer_ = u32Size;

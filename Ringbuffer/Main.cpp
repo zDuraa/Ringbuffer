@@ -3,6 +3,7 @@
 #include "Ringbuffer.h"
 #include "Consumer.h"
 #include "Producer.h"
+#include "IOChannel.h"
 
 void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
@@ -18,14 +19,19 @@ int main(void)
 
 void vTestCreateObjectsRingbuffer(void) 
 {
-	int iTemp = 0;
+	int iTemp = 5;
 	uint32_t u32SizeOfRingbuffer = 8;
 	Ringbuffer* pRingbuffer = new Ringbuffer( u32SizeOfRingbuffer );
 	Producer Producer{ pRingbuffer };
 	Consumer* pConsumer = new Consumer{ pRingbuffer };
+	IOChannel* pIOChannel = new IOChannel{};
 
+	pIOChannel->s32WriteElementToChannel(1, iTemp);
+	iTemp = 0;
+	pIOChannel->s32ReadElementFromChannel(1, iTemp);
+	
 	pRingbuffer->vPrintRingBuffer();
-
+	
 	iTemp = 42;
 	Producer.s32WriteToRingbuffer(iTemp);
 	iTemp = 43;

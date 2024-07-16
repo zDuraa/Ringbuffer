@@ -30,6 +30,9 @@
     <ClCompile Include="Consumer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IOChannel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ringbuffer.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Consumer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOChannel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
