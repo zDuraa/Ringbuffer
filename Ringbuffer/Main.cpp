@@ -2,43 +2,57 @@
 #include <cstdint>
 #include "Ringbuffer.h"
 
+
+void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
 int main(void)
 {
+	
+	vTestCreateObjectsRingbuffer();
+	_CrtDumpMemoryLeaks();
+
+	return 0;
+}
+
+void vTestCreateObjectsRingbuffer(void) 
+{
 	int iTemp = 0;
+	uint32_t u32SizeOfRingbuffer = 8;
+	Ringbuffer* pRingbuffer = new Ringbuffer( u32SizeOfRingbuffer );
+	pRingbuffer->vPrintRingBuffer();
 
-	Ringbuffer Ringbuffer1{};
-	Ringbuffer1.vPrintRingBuffer();
+	pRingbuffer->s32WriteElement(42);
+	pRingbuffer->s32WriteElement(43);
+	pRingbuffer->s32WriteElement(44);
+	pRingbuffer->s32WriteElement(45);
+	pRingbuffer->s32WriteElement(46);
+	pRingbuffer->s32WriteElement(47);
+	pRingbuffer->s32WriteElement(48);
+	pRingbuffer->s32WriteElement(49);
+	pRingbuffer->s32WriteElement(50);
 
-	Ringbuffer1.s32WriteElement(42);
-	Ringbuffer1.s32WriteElement(43);
-	Ringbuffer1.s32WriteElement(44);
-	Ringbuffer1.s32WriteElement(45);
-	Ringbuffer1.s32WriteElement(46);
-	Ringbuffer1.s32WriteElement(47);
-	Ringbuffer1.s32WriteElement(48);
-	Ringbuffer1.s32WriteElement(49);
-	Ringbuffer1.s32WriteElement(50);
+	pRingbuffer->vPrintRingBuffer();
 
-	Ringbuffer1.vPrintRingBuffer();
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
 
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
+	pRingbuffer->vPrintRingBuffer();
 
-	Ringbuffer1.vPrintRingBuffer();
+	pRingbuffer->s32WriteElement(99);
 
-	Ringbuffer1.s32WriteElement(99);
+	pRingbuffer->vPrintRingBuffer();
 
-	Ringbuffer1.vPrintRingBuffer();
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
+	pRingbuffer->s32ReadElement(iTemp);
 
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
-	Ringbuffer1.s32ReadElement(iTemp);
+	pRingbuffer->vPrintRingBuffer();
 
-	Ringbuffer1.vPrintRingBuffer();
+	pRingbuffer->vPrintRingbufferMembersValueAndAddress();
+
 }
