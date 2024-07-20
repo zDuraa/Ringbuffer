@@ -9,6 +9,8 @@
 void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
 using namespace Client;
+
+#define TEST 0
 int main(void)
 {
 	
@@ -27,23 +29,32 @@ void vTestCreateObjectsRingbuffer(void)
 	Consumer* pConsumer = new Consumer{ pRingbuffer };
 	IOChannel* pIOChannel = new IOChannel{};
 
-	Queue* pQueue = new Queue{8};
-	pQueue->s32WriteElement(iTemp);
-	iTemp = 43;
-	pQueue->s32WriteElement(iTemp);
-	iTemp = 44;
-	pQueue->s32WriteElement(iTemp);
-	iTemp = 10;
-	pQueue->s32WriteElementFront(iTemp);
-	pQueue->vPrintRingBuffer();
-	
-	
-	pIOChannel->s32WriteElementToChannel(1, iTemp);
-	iTemp = 0;
-	pIOChannel->s32ReadElementFromChannel(1, iTemp);
 
-	pRingbuffer->vPrintRingBuffer();
+
+//Test Queue
+#if TEST == 0
+	Queue* pQueue1 = new Queue{ 8 };
 	
+	
+	pQueue1->s32WriteElement(iTemp);
+	iTemp = 43;
+	pQueue1->s32WriteElement(iTemp);
+	iTemp = 44;
+	pQueue1->s32WriteElement(iTemp);
+	iTemp = 10;
+	pQueue1->s32WriteElementFront(iTemp);
+	
+
+	Queue* pQueue2 = new MyDataStructures::Queue(*pQueue1);
+	pQueue2->vPrintRingBuffer();
+	Queue* pQueue3 = new MyDataStructures::Queue(std::move(*pQueue1));
+	pQueue3->vPrintRingBuffer();
+
+	
+//Test Ringbuffer with Producer and Consumer
+#elif TEST == 1
+	pRingbuffer->vPrintRingBuffer();
+
 	iTemp = 42;
 	Producer.s32WriteToRingbuffer(iTemp);
 	iTemp = 43;
@@ -88,4 +99,25 @@ void vTestCreateObjectsRingbuffer(void)
 
 	pRingbuffer->vPrintRingbufferMembersValueAndAddress();
 
+
+//Test IOChannel
+#elif TEST == 2
+
+	iTemp = 1;
+	pIOChannel->s32WriteElementToChannel(1, iTemp);
+	iTemp = 2;
+	pIOChannel->s32WriteElementToChannel(1, iTemp);
+	pIOChannel->s32WriteElementToChannel(2, iTemp);
+	
+	pIOChannel->s32ReadElementFromChannel(1, iTemp);
+	pIOChannel->s32ReadElementFromChannel(2, iTemp);
+	
+#endif 
+
+	
+
+	
+	pIOChannel->s32WriteElementToChannel(1, iTemp);
+	Producer.s32WriteToRingbuffer(iTemp);
+	pConsumer->s32ReadFromRingbuffer(iTemp);
 }

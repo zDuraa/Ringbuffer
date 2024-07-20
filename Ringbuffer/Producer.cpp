@@ -19,3 +19,4 @@ Producer::~Producer() {
 int32_t Producer::s32WriteToRingbuffer(int32_t& rs32Element) {
 	return pRingbuffer->s32WriteElement(rs32Element);
 }
+

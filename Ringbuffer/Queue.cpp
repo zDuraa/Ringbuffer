@@ -35,3 +35,7 @@ int32_t Queue::s32WriteElementFront(int32_t& rs32Element) {
 	
 	return i32Ret;
 }
+
+
+
+
