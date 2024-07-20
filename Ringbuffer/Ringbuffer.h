@@ -13,7 +13,7 @@ namespace MyDataStructures
 	{
 	public:
 		Ringbuffer();	
-		Ringbuffer(uint32_t u32Size);
+		Ringbuffer(uint32_t u32SizeOfBuffer_);
 		~Ringbuffer();
 
 		int32_t s32ReadElement(int32_t& rs32Element) noexcept; 
@@ -23,6 +23,8 @@ namespace MyDataStructures
 		void vPrintRingbufferMembersValueAndAddress(void) const noexcept;
 		void vPrintWriteElement(const int32_t& rs32Element, int32_t i32Ret)const noexcept;
 		void vPrintReadElement(const int32_t& rs32Element, int32_t i32Ret)const noexcept;
+
+		
 	protected:
 		uint32_t u32SizeOfBuffer_;
 		uint32_t u32ReadPos_;

@@ -25,7 +25,7 @@ void Ringbuffer::vPrintRingBuffer(void)const noexcept
 		cout << "\t";
 	}
 	cout << "uiReadPos" << endl;
-	cout << "\n-------------------------------------------------------------------" << endl;;
+	cout << "\n-------------------------------------------------------------------" << endl;
 }
 
 void Ringbuffer::vPrintWriteElement(const int32_t& rs32Element, int32_t i32Ret)const noexcept

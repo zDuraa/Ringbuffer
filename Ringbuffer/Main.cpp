@@ -5,12 +5,13 @@
 #include "Producer.h"
 #include "IOChannel.h"
 #include "Queue.h"
+#include "RingbufferTemplate.h"
 
 void vTestCreateObjectsRingbuffer(void);
 using namespace MyDataStructures;
 using namespace Client;
 
-#define TEST 0
+#define TEST 3
 int main(void)
 {
 	
@@ -22,15 +23,7 @@ int main(void)
 
 void vTestCreateObjectsRingbuffer(void) 
 {
-	int iTemp = 5;
-	uint32_t u32SizeOfRingbuffer = 8;
-	Ringbuffer* pRingbuffer = new Ringbuffer( u32SizeOfRingbuffer );
-	Producer Producer{ pRingbuffer };
-	Consumer* pConsumer = new Consumer{ pRingbuffer };
-	IOChannel* pIOChannel = new IOChannel{};
-
-
-
+	int32_t iTemp = 5;
 //Test Queue
 #if TEST == 0
 	Queue* pQueue1 = new Queue{ 8 };
@@ -53,6 +46,11 @@ void vTestCreateObjectsRingbuffer(void)
 	
 //Test Ringbuffer with Producer and Consumer
 #elif TEST == 1
+	uint32_t u32SizeOfRingbuffer = 8;
+	Ringbuffer* pRingbuffer = new Ringbuffer(u32SizeOfRingbuffer);
+	Producer Producer{ pRingbuffer };
+	Consumer* pConsumer = new Consumer{ pRingbuffer };
+
 	pRingbuffer->vPrintRingBuffer();
 
 	iTemp = 42;
@@ -102,6 +100,7 @@ void vTestCreateObjectsRingbuffer(void)
 
 //Test IOChannel
 #elif TEST == 2
+	IOChannel* pIOChannel = new IOChannel{};
 
 	iTemp = 1;
 	pIOChannel->s32WriteElementToChannel(1, iTemp);
@@ -111,13 +110,21 @@ void vTestCreateObjectsRingbuffer(void)
 	
 	pIOChannel->s32ReadElementFromChannel(1, iTemp);
 	pIOChannel->s32ReadElementFromChannel(2, iTemp);
-	
+
+//Test Template Ringbuffer
+#elif TEST == 3
+	RingbufferTemplate<int, 8> ringBufferTemplate;
+	ringBufferTemplate.s32WriteElement(iTemp);
+	 iTemp = 10;
+	ringBufferTemplate.s32WriteElement(iTemp);
+	 iTemp = 15;
+	ringBufferTemplate.s32WriteElement(iTemp);
+	 iTemp = 20;
+	ringBufferTemplate.s32WriteElement(iTemp);
+	cout << ringBufferTemplate << endl;
 #endif 
 
 	
 
 	
-	pIOChannel->s32WriteElementToChannel(1, iTemp);
-	Producer.s32WriteToRingbuffer(iTemp);
-	pConsumer->s32ReadFromRingbuffer(iTemp);
 }

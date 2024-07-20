@@ -86,3 +86,5 @@ int32_t Ringbuffer::s32WriteElement(const int32_t& rs32Element) noexcept
 	
 	return i32Ret;
 }
+
+
