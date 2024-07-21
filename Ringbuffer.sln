@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ringbuffer", "Ringbuffer\Ringbuffer.vcxproj", "{977E23BD-410A-417F-9765-1B3CBFDB2A06}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RingbufferGoogleTets", "RingbufferGoogleTets\RingbufferGoogleTets.vcxproj", "{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{977E23BD-410A-417F-9765-1B3CBFDB2A06}.Release|x64.Build.0 = Release|x64
 		{977E23BD-410A-417F-9765-1B3CBFDB2A06}.Release|x86.ActiveCfg = Release|Win32
 		{977E23BD-410A-417F-9765-1B3CBFDB2A06}.Release|x86.Build.0 = Release|Win32
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Debug|x64.ActiveCfg = Debug|x64
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Debug|x64.Build.0 = Debug|x64
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Debug|x86.ActiveCfg = Debug|Win32
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Debug|x86.Build.0 = Debug|Win32
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Release|x64.ActiveCfg = Release|x64
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Release|x64.Build.0 = Release|x64
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Release|x86.ActiveCfg = Release|Win32
+		{486A5DB5-DDE9-4AA8-B71A-3F2DDB0FFE58}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

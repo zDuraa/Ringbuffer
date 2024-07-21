@@ -8,3 +8,6 @@
 /x64/Debug
 /Ringbuffer/Debug
 /Debug
+/RingbufferGoogleTets/x64/Debug
+/googletest-main/googletest-main
+/packages
